@@ -1,5 +1,5 @@
 # test-driven-development
-##What are unit tests?
+## What are unit tests?
 According to Wikipedia : 
 
 
@@ -11,7 +11,7 @@ In other words, unit tests are not about testing individual methods or functions
 
 A failing test shouldn’t affect the result of other tests.
 
-##TDD is not testing
+## TDD is not testing
 Lots of people associate TDD with testing, this is also a common misconception. TDD is not a testing method. It’s a development method. It's about finding the algorithm. It's about using tests to "ask questions" that your algorithm will answer as you develop it.
 TDD uses tests to develop, but it isn’t a testing strategy. It isn’t about testing.
 
@@ -22,7 +22,7 @@ There are 2 main schools of thoughts in TDD :
 
 The description of those 2 schools of thoughts is beyond the scope of this presentation, however, both have one thing in common
 
-##Hexagonal architecture, and how TDD helps your design
+## Hexagonal architecture, and how TDD helps your design
 The hexagonal architecture, or ports and adapters architecture, is an architectural pattern used in software design. It aims at creating loosely coupled application components that can be easily connected to their software environment by means of ports and adapters. This makes components exchangeable at any level and facilitates test automation.
 
 TDD, by making you start with writing your tests before writing your code, forces you to test from your public API, this indirectly helps you towards hexagonal architecture naturally as everything needs to be testable from the start. It won’t do everything for you, but if you have basic notions of architecture and design patterns, it will naturally guide you towards a decoupled design, and will help you have a public API loosely coupled to your external dependencies.
