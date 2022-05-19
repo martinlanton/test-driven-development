@@ -1,4 +1,9 @@
 # test-driven-development
+
+This page is a presentation about some parts of the concept of unit testing in Python. Most of it is specifically about Test-Driven Development and introduces its related disciplines : Behavior Driven Development (BDD) and Acceptance Test-Driven Development (ATDD).
+
+Those 2 related disciplines however are beyond the scope of this presentation, so we will just introduce them and their relation to TDD.
+
 ## What are unit tests?
 According to Wikipedia : 
 
@@ -37,11 +42,49 @@ Give an example of design with hexagonal architecture and tests for an animation
 Start from a list of features : 
 
 * save a pose
+  * save a selected empty pose (no keyframes) : save nothing
+  * save a selected pose
 * load a pose
+  * load an empy pose (empty file) : load nothing
+  * load a corrupted file : load nothing
+  * load a single pose : load the pose at specified frame
 * save an animation
+  * save an empty frame range : save nothing 
+  * save the keys over a certain frame range
 * load an animation
+  * load an empty animation file : load nothing
+  * load an animation at the specified start frame
+  * load an animation at the specified start frame with an already existing animation : should error when not in force mode
+  * load an animation at the specified start frame with an already existing animation : should erase the current animation when in force mode
 * load a series of poses to create an animation
+  * load a series of empty poses at specified start frame and interval : load nothing
+  * load a series of poses, some of which empty, at specified start frame and interval : should leave empty frames in the timeline based on the interval specified and the order of empty poses
+  * load a series of poses at specified start frame and interval
+  * load a series of poses at specified start frame and interval with an already existing animation : should error when not in force mode
+  * load a series of poses at specified start frame and interval with an already existing animation : should erase the current animation when in force mode
+  * load a series of poses over specified frame range with specified interval (should stretch/squash interval to fill the frame range)
+  * load a series of poses over specified frame range with specified interval with an already existing animation : should error when not in force mode
+  * load a series of poses over specified frame range with specified interval with an already existing animation : should erase the current animation and stretch interval to fill the frame range when in force mode
 * load a series of animations to create an animation
+  * load a series of empty animations at specified start frame and interval : load nothing
+  * load a series of animations, some of which empty, at specified start frame and interval : should leave empty frames in the timeline based on the interval specified and the order of empty animations (and/or the length of empty animations, if specified)
+  * load a series of animations at specified start frame and interval
+  * load a series of animations at specified start frame and interval with an already existing animation : should error when not in force mode
+  * load a series of animations at specified start frame and interval with an already existing animation : should erase the current animation when in force mode
+  * load a series of animations, some of which empty, over specified frame range and interval : should leave empty frames in the timeline based on the interval specified and the order of empty animations (and/or the length of empty animations, if specified)
+  * load a series of animations over specified frame range and interval : should stretch/squash animations to fill frame range
+  * load a series of animations over specified frame range and interval with an already existing animation : should error when not in force mode
+  * load a series of animations over specified frame range and interval with an already existing animation : should erase the current animation stretch/squash loaded animations to fill frame range when in force mode
+* load a series of animations to create an COMBINED animation : same thing as the precedent series of test, but with the addition that the last frame of an animation should be replaced with the first frame of the following animation
+  * load a series of empty animations at specified start frame and interval : load nothing
+  * load a series of animations, some of which empty, at specified start frame and interval : should leave empty frames in the timeline based on the interval specified and the order of empty animations (and/or the length of empty animations, if specified)
+  * load a series of animations at specified start frame and interval
+  * load a series of animations at specified start frame and interval with an already existing animation : should error when not in force mode
+  * load a series of animations at specified start frame and interval with an already existing animation : should erase the current animation when in force mode
+  * load a series of animations, some of which empty, over specified frame range and interval : should leave empty frames in the timeline based on the interval specified and the order of empty animations (and/or the length of empty animations, if specified)
+  * load a series of animations over specified frame range and interval : should stretch/squash animations to fill frame range
+  * load a series of animations over specified frame range and interval with an already existing animation : should error when not in force mode
+  * load a series of animations over specified frame range and interval with an already existing animation : should erase the current animation stretch/squash loaded animations to fill frame range when in force mode
 
 Fakes : difference between mocks and stubs
 Don't mock what you don't own => create adapters around your dependencies : that's what hexagonal architecture is for
