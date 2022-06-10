@@ -88,5 +88,15 @@ Start from a list of features :
   * load a series of animations over specified frame range and interval with an already existing animation : should error when not in force mode
   * load a series of animations over specified frame range and interval with an already existing animation : should erase the current animation stretch/squash loaded animations to fill frame range when in force mode
 
+## What are fakes? 
 Fakes : difference between mocks and stubs
-Don't mock what you don't own => create adapters around your dependencies : that's what hexagonal architecture is for
+
+### What are stubs?
+
+### What are mocks?
+
+## Don't mock what you don't own
+Why?
+Don't mock what you don't own => create adapters around your dependencies : that's what hexagonal architecture is for.
+
+
