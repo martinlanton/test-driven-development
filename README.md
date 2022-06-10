@@ -16,7 +16,7 @@ In other words, unit tests are not about testing individual methods or functions
 
 A failing test shouldn’t affect the result of other tests.
 
-## TDD is not testin
+## TDD is not testing
 Lots of people associate TDD with testing, this is also a common misconception. TDD is not a testing method. It’s a development method.
 In Test-Driven Development, Test-Driven is an adjective. Tests are not the end, they're the means.
 TDD is about finding the algorithm you're looking for, it's about using tests to "ask questions" that your algorithm will answer as you develop it.
